@@ -7,13 +7,13 @@
   <style>
     :root{ --chk-size:clamp(22px,2.2vw,34px); --max-width-stage:900px; }
     html,body{margin:0;height:100%;font-family:Arial,sans-serif;background:#2ec4b6;}
-    #stage{position:relative;width:100vw;max-width:var(--max-width-stage);margin:0 auto;aspect-ratio:9/16;background:url('Velada5.jpg') no-repeat center 160px/contain;overflow:hidden;}
+    #stage{position:relative;width:100vw;max-width:var(--max-width-stage);margin:0 auto;aspect-ratio:9/16;background:url('Velada5.jpg') no-repeat center 40%/contain;overflow:hidden;}
     .overlay{position:absolute;inset:0}
     .checkbox{position:absolute;width:var(--chk-size);height:var(--chk-size);cursor:pointer;opacity:.95;appearance:none;border:3px solid #fff;border-radius:6px;background:rgba(255,255,255,.1)}
     .checkbox:checked{background:#ff3399;box-shadow:0 0 6px #fff inset}
     #titulo{position:absolute;top:.3%;left:50%;transform:translateX(-50%);margin:0;font-size:clamp(20px,3vw,34px);color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.45);z-index:11;text-align:center}
-    #logo{position:absolute;top:2%;right:3%;width:clamp(60px,8vw,120px);z-index:11}
-    #nombre{position:absolute;top:6.5%;left:6%;padding:12px 20px;font-size:22px;border-radius:10px;width:45%;max-width:320px;border:2px solid #ff3399;box-shadow:0 0 10px rgba(0,0,0,.25);z-index:10}
+    #logo{position:absolute;top:4%;right:10%;width:clamp(60px,8vw,120px);z-index:11}
+    #nombre{position:absolute;top:7%;left:10%;padding:12px 20px;font-size:22px;border-radius:10px;width:45%;max-width:320px;border:2px solid #ff3399;box-shadow:0 0 10px rgba(0,0,0,.25);z-index:10}
     #votar{position:absolute;bottom:20.5%;left:50%;transform:translateX(-50%);padding:14px 36px;font-size:22px;background:#ff3399;color:#fff;border:none;border-radius:14px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25);z-index:10}
     #votar[disabled]{opacity:.5;cursor:not-allowed}
     #votar:hover:not([disabled]){background:#cc0066}
@@ -21,26 +21,26 @@
   </style>
 </head>
 <body>
-  <div id="stage">
-    <h1 id="titulo">Predicciones la Velada 5 por la McSquad</h1>
-    <img id="logo" src="logomcsquad.png" alt="McSquad logo" />
-    <input type="text" id="nombre" placeholder="Escribe tu nombre" />
 
+  <h1 id="titulo">Predicciones la Velada 5 por la McSquad</h1>
+  <img id="logo" src="logomcsquad.png" alt="McSquad logo" />
+  <input type="text" id="nombre" placeholder="Escribe tu nombre" />
+  <div id="stage">
     <div class="overlay">
-      <input type="radio" name="fight1" value="Pereira"     class="checkbox" style="top:22.2%; left:30.5%;">
-      <input type="radio" name="fight1" value="Rivaldios"   class="checkbox" style="top:22.2%; right:30.7%;">
-      <input type="radio" name="fight2" value="Alana"       class="checkbox" style="top:30.3%; left:30.5%;">
-      <input type="radio" name="fight2" value="Ari Geli"    class="checkbox" style="top:30.3%; right:30.7%;">
-      <input type="radio" name="fight3" value="Perxitaa"    class="checkbox" style="top:38.1%; left:30.5%;">
-      <input type="radio" name="fight3" value="Gaspi"       class="checkbox" style="top:38.1%; right:30.7%;">
-      <input type="radio" name="fight4" value="Abby"        class="checkbox" style="top:46.1%; left:30.5%;">
-      <input type="radio" name="fight4" value="Roro"        class="checkbox" style="top:46.1%; right:30.7%;">
-      <input type="radio" name="fight5" value="Viruzz"      class="checkbox" style="top:53.8%; left:30.5%;">
-      <input type="radio" name="fight5" value="Tomás Mazza" class="checkbox" style="top:53.8%; right:30.7%;">
-      <input type="radio" name="fight6" value="Andoni"      class="checkbox" style="top:61.5%; left:30.5%;">
-      <input type="radio" name="fight6" value="Carlos Belcast" class="checkbox" style="top:61.5%; right:30.7%;">
-      <input type="radio" name="fight7" value="The Grefg"   class="checkbox" style="top:69.4%; left:30.5%;">
-      <input type="radio" name="fight7" value="Westcol"     class="checkbox" style="top:69.4%; right:30.7%;">
+      <input type="radio" name="fight1" value="Pereira"     class="checkbox" style="top:25.2%; left:30.5%;">
+      <input type="radio" name="fight1" value="Rivaldios"   class="checkbox" style="top:25.2%; right:30.7%;">
+      <input type="radio" name="fight2" value="Alana"       class="checkbox" style="top:33.3%; left:30.5%;">
+      <input type="radio" name="fight2" value="Ari Geli"    class="checkbox" style="top:33.3%; right:30.7%;">
+      <input type="radio" name="fight3" value="Perxitaa"    class="checkbox" style="top:40.1%; left:30.5%;">
+      <input type="radio" name="fight3" value="Gaspi"       class="checkbox" style="top:40.1%; right:30.7%;">
+      <input type="radio" name="fight4" value="Abby"        class="checkbox" style="top:49.1%; left:30.5%;">
+      <input type="radio" name="fight4" value="Roro"        class="checkbox" style="top:49.1%; right:30.7%;">
+      <input type="radio" name="fight5" value="Viruzz"      class="checkbox" style="top:56.8%; left:30.5%;">
+      <input type="radio" name="fight5" value="Tomás Mazza" class="checkbox" style="top:56.8%; right:30.7%;">
+      <input type="radio" name="fight6" value="Andoni"      class="checkbox" style="top:64.5%; left:30.5%;">
+      <input type="radio" name="fight6" value="Carlos Belcast" class="checkbox" style="top:64.5%; right:30.7%;">
+      <input type="radio" name="fight7" value="The Grefg"   class="checkbox" style="top:72.4%; left:30.5%;">
+      <input type="radio" name="fight7" value="Westcol"     class="checkbox" style="top:72.4%; right:30.7%;">
     </div>
 
     <button id="votar" onclick="guardarVoto()">Votar</button>
