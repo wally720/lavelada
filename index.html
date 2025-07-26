@@ -2,131 +2,163 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Predicciones - Votación</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gracias por votar</title>
   <style>
-    :root{ --chk-size:clamp(22px,2.2vw,34px); --max-width-stage:900px; }
-    html,body{margin:0;height:100%;font-family:Arial,sans-serif;background:#2ec4b6;}
-    #stage{position:relative;width:100vw;max-width:var(--max-width-stage);margin:0 auto;aspect-ratio:9/16;background:url('Velada5.jpg') no-repeat center 40%/contain;overflow:hidden;}
-    .overlay{position:absolute;inset:0}
-    .checkbox{position:absolute;width:var(--chk-size);height:var(--chk-size);cursor:pointer;opacity:.95;appearance:none;border:3px solid #fff;border-radius:6px;background:rgba(255,255,255,.1)}
-    .checkbox:checked{background:#ff3399;box-shadow:0 0 6px #fff inset}
-    #titulo{position:absolute;top:.3%;left:50%;transform:translateX(-50%);margin:0;font-size:clamp(20px,3vw,34px);color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.45);z-index:11;text-align:center}
-    #logo{position:absolute;top:4%;right:10%;width:clamp(60px,8vw,120px);z-index:11}
-    #nombre{position:absolute;top:7%;left:10%;padding:12px 20px;font-size:22px;border-radius:10px;width:45%;max-width:320px;border:2px solid #ff3399;box-shadow:0 0 10px rgba(0,0,0,.25);z-index:10}
-    #votar{position:absolute;bottom:20.5%;left:50%;transform:translateX(-50%);padding:14px 36px;font-size:22px;background:#ff3399;color:#fff;border:none;border-radius:14px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25);z-index:10}
-    #votar[disabled]{opacity:.5;cursor:not-allowed}
-    #votar:hover:not([disabled]){background:#cc0066}
-    @media(max-width:480px){#nombre,#votar{font-size:18px;padding:10px 18px}}
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      background: #000;
+      color: #fff;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 0 0 20px #00ffff;
+      border-right: 3px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 2.5s steps(30, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    img {
+      max-width: 250px;
+      margin: 40px 0;
+      animation: fadeIn 2s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: scale(1.05); }
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 15px 25px;
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px #06b6d4;
+    }
+
+    a.button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #3b82f6;
+    }
   </style>
 </head>
 <body>
 
-  <h1 id="titulo">Predicciones la Velada 5 por la McSquad</h1>
-  <img id="logo" src="logomcsquad.png" alt="McSquad logo" />
-  <input type="text" id="nombre" placeholder="Escribe tu nombre" />
-  <div id="stage">
-    <div class="overlay">
-      <input type="radio" name="fight1" value="Pereira"     class="checkbox" style="top:25.2%; left:30.5%;">
-      <input type="radio" name="fight1" value="Rivaldios"   class="checkbox" style="top:25.2%; right:30.7%;">
-      <input type="radio" name="fight2" value="Alana"       class="checkbox" style="top:33.3%; left:30.5%;">
-      <input type="radio" name="fight2" value="Ari Geli"    class="checkbox" style="top:33.3%; right:30.7%;">
-      <input type="radio" name="fight3" value="Perxitaa"    class="checkbox" style="top:40.1%; left:30.5%;">
-      <input type="radio" name="fight3" value="Gaspi"       class="checkbox" style="top:40.1%; right:30.7%;">
-      <input type="radio" name="fight4" value="Abby"        class="checkbox" style="top:49.1%; left:30.5%;">
-      <input type="radio" name="fight4" value="Roro"        class="checkbox" style="top:49.1%; right:30.7%;">
-      <input type="radio" name="fight5" value="Viruzz"      class="checkbox" style="top:56.8%; left:30.5%;">
-      <input type="radio" name="fight5" value="Tomás Mazza" class="checkbox" style="top:56.8%; right:30.7%;">
-      <input type="radio" name="fight6" value="Andoni"      class="checkbox" style="top:64.5%; left:30.5%;">
-      <input type="radio" name="fight6" value="Carlos Belcast" class="checkbox" style="top:64.5%; right:30.7%;">
-      <input type="radio" name="fight7" value="The Grefg"   class="checkbox" style="top:72.4%; left:30.5%;">
-      <input type="radio" name="fight7" value="Westcol"     class="checkbox" style="top:72.4%; right:30.7%;">
-    </div>
+  <div id="particles-js"></div>
 
-    <button id="votar" onclick="guardarVoto()">Votar</button>
+  <div class="content">
+    <h1>¡Gracias por votar!</h1>
+    <img src="logomcsquad.png" alt="Logo">
+    <a href="https://discord.com/invite/rGk6Q2dsDN" class="button" target="_blank">Unirse al Discord</a>
   </div>
 
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
   <script>
-    // URL actualizada de tu formulario
-    const FORM_ACTION = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSehnoJyYx0WG8ZBYYiVRtjtdLQt1AfSi5W8dSux5HDVp5Gs0w/formResponse";
-
-    // IDs entry.* del formulario
-    const ENTRY = {
-      nombre:"entry.1204612565",
-      fight1:"entry.1402798894",
-      fight2:"entry.97995459",
-      fight3:"entry.1713435712",
-      fight4:"entry.1767421457",
-      fight5:"entry.1010733930",
-      fight6:"entry.1569425933",
-      fight7:"entry.387669378"
-    };
-
-    // Etiquetas bonitas para los alerts
-    const etiquetas = {
-      fight1: 'Primer Combate',
-      fight2: 'Segundo Combate',
-      fight3: 'Tercer Combate',
-      fight4: 'Cuarto Combate',
-      fight5: 'Quinto Combate',
-      fight6: 'Sexto Combate',
-      fight7: 'Séptimo Combate'
-    };
-
-    function guardarVoto(){
-      const nombre = document.getElementById('nombre').value.trim();
-      if(!nombre){ alert('Escribe tu nombre'); return; }
-
-      // Validación con nombres personalizados
-      for(const key in etiquetas){
-        if(!document.querySelector(`input[name="${key}"]:checked`)){
-          alert(`Falta elegir ${etiquetas[key]}`);
-          return;
+    tsParticles.load("particles-js", {
+      background: {
+        color: "#000"
+      },
+      fpsLimit: 60,
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            area: 800
+          }
+        },
+        color: {
+          value: ["#00ffff", "#3b82f6", "#ffffff"]
+        },
+        shape: {
+          type: "circle"
+        },
+        opacity: {
+          value: 0.5,
+          random: true
+        },
+        size: {
+          value: 3,
+          random: true
+        },
+        move: {
+          enable: true,
+          speed: 1.2,
+          direction: "none",
+          outMode: "bounce"
+        },
+        links: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.3,
+          width: 1
         }
-      }
-
-      const votos = {
-        nombre,
-        fight1: document.querySelector('input[name="fight1"]:checked').value,
-        fight2: document.querySelector('input[name="fight2"]:checked').value,
-        fight3: document.querySelector('input[name="fight3"]:checked').value,
-        fight4: document.querySelector('input[name="fight4"]:checked').value,
-        fight5: document.querySelector('input[name="fight5"]:checked').value,
-        fight6: document.querySelector('input[name="fight6"]:checked').value,
-        fight7: document.querySelector('input[name="fight7"]:checked').value,
-        fecha:  new Date().toLocaleString()
-      };
-
-      const fd = new FormData();
-      fd.append(ENTRY.nombre, votos.nombre);
-      fd.append(ENTRY.fight1, votos.fight1);
-      fd.append(ENTRY.fight2, votos.fight2);
-      fd.append(ENTRY.fight3, votos.fight3);
-      fd.append(ENTRY.fight4, votos.fight4);
-      fd.append(ENTRY.fight5, votos.fight5);
-      fd.append(ENTRY.fight6, votos.fight6);
-      fd.append(ENTRY.fight7, votos.fight7);
-      // fd.append(ENTRY.fecha, votos.fecha); // solo si agregas ese campo al form
-
-      const btn = document.getElementById('votar');
-      btn.disabled = true;
-
-      fetch(FORM_ACTION,{method:'POST',mode:'no-cors',body:fd})
-        .then(()=>{
-          alert(`Gracias por votar, ${nombre}!`);
-          resetForm();
-        })
-        .catch(err=>{
-          console.error(err);
-          alert('Error al enviar. Revisa consola.');
-        })
-        .finally(()=>{btn.disabled=false;});
-    }
-
-    function resetForm(){
-      document.getElementById('nombre').value="";
-      document.querySelectorAll('.checkbox:checked').forEach(el=>el.checked=false);
-    }
+      },
+      interactivity: {
+        events: {
+          onHover: {
+            enable: true,
+            mode: "repulse"
+          },
+          onClick: {
+            enable: true,
+            mode: "push"
+          }
+        },
+        modes: {
+          repulse: {
+            distance: 100
+          },
+          push: {
+            quantity: 4
+          }
+        }
+      },
+      detectRetina: true
+    });
   </script>
 </body>
 </html>
